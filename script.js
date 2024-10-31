@@ -1,21 +1,26 @@
-var MainButton = WebApp.MainButton;
-var BackButton = WebApp.BackButton;
+let tg = window.Telegram.WebApp;
 
-MainButton.show();
-BackButton.show();
+let btnSH = document.getElementById("btn");
+let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
 
-MainButton.onClick(function() {
-  WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
-});
-WebApp.onEvent('mainButtonClicked', function() {
-  /* also */
-});
+let area = document.getElementById("area");
+let thickness = document.getElementById("thickness");
+let price_stone = document.getElementById("price_stone");
+let price_primer = document.getElementById("price_primer");
 
-BackButton.onClick(function() {
-  WebApp.showAlert("Нет пути назад!");
-  
-  BackButton.hide();
-});
-WebApp.onEvent('backButtonClicked', function() {
-  /* also */
+let sendData = "";
+
+tg.expand();
+
+tg.MainButton.setText("Рассчитать"); //изменяем текст кнопки иначе
+tg.MainButton.textColor = "#FFFFFF"; //изменяем цвет текста кнопки
+tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
+tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры 
+
+tg.MainButton.show();
+
+Telegram.WebApp.onEvent('mainButtonClicked', function(){
+	sendData = area.value + "$" + thickness.value + "$" + price_stone.value + "$" + price_primer.value + "&";
+
+	tg.sendData(sendData); 
 });
