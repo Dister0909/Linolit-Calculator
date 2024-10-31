@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Document</title>
 
     <style>
-        .label {
-            padding-right: 20px;
-        }
+    body{
+        color: var(--tg-theme-text-color);
+        background: var(--tg-theme-bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .input {
+        text-align: center;
+    }
     </style>
 </head>
 <body>
     <h1 class="h1" >Калькулатор LINOLIT</h1>
 
     <label class="label">Площадь (m²): </label>
-    <input type="number" title="Площадь" value="0" id="area">
+    <input type="number" title="Площадь" value="0" id="area" class="input">
     <br>
     <br>
     <label class="label">Толщина (мм): </label>
-    <input type="number" title="Толщина" value="0" id="thickness">
+    <input type="number" title="Толщина" value="0" id="thickness" class="input">
     <br>
     <br>
     <label class="label">Цена камня (руб/кг): </label>
-    <input type="number" title="Цена камня" value="0" id="price_stone">
+    <input type="number" title="Цена камня" value="0" id="price_stone" class="input">
     <br>
     <br>
     <label class="label">Цена грунта (руб/кг): </label>
-    <input type="number" title="Цена грунта" value="0" id="price_primer">
+    <input type="number" title="Цена грунта" value="0" id="price_primer" class="input">
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </html>
